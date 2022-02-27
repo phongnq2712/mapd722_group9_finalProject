@@ -59,24 +59,6 @@ export class SignupComponent implements OnInit {
           console.log(err);
       })
     }
-    
-    // this.fireService.signup({email: this.email, password: this.password, userType: this.userType}).then(res => {
-    //   if(res.user.uid){
-    //     let data = {
-    //       email: this.email,
-    //       password: this.password,
-    //       userType: this.userType,
-    //       uid: res.user.uid
-    //     }
-    //     this.fireService.saveDetails(data).then(res => {
-    //       this.router.navigate(['/login']);
-    //       this.presentToast();
-    //     }, err => {
-    //       alert(err);
-    //     })
-    //   }
-    // })
-  // }
 
   async presentToast() {
     const toast = await this.toastController.create({

@@ -17,11 +17,12 @@ export class User {
 
 export class UserCrudService {
 
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
+//   httpOptions = {
+//     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+//   };
 
-  constructor(private httpClient: HttpClient) { }
+    apiHost = 'http://127.0.0.1:5000';
+    constructor(private httpClient: HttpClient) { }
 
 //   createUser(user: User): Observable<any> {
 //     return this.httpClient.post<User>('http://localhost:5000/users/register', user, this.httpOptions)
@@ -34,7 +35,7 @@ async register(data){
     var month = new Date().getMonth() + 1;
     var year = new Date().getFullYear();
     try {
-        const response = await fetch('http://127.0.0.1:5000/users/register', 
+        const response = await fetch(this.apiHost + '/users/register', 
         {   method: 'POST',
             headers: {
                 'Accept': 'application/json; charset=utf-8',
@@ -49,6 +50,22 @@ async register(data){
         });
         const json = await response.json();
         return json;
+      } catch (error) {
+        console.error(error);
+    }
+}
+
+async login(username, password) {
+    try {
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 'userName': username, 'password': password })
+        };
+        const response = await fetch(this.apiHost+'/users/login', requestOptions);
+        const data = await response.json();
+
+        return data[0];
       } catch (error) {
         console.error(error);
     }
