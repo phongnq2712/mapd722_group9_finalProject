@@ -15,7 +15,6 @@ export class Tab2Page implements OnInit {
 
   ngOnInit(){
     this.patients = this.patientCrudService.loadAllPatients();
-    console.log(this.patients);
   }
 
   addPatient() {
