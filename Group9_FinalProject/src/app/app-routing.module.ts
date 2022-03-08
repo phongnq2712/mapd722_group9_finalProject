@@ -10,7 +10,11 @@ const routes: Routes = [
     path: 'groupnine',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
-  { path: '', redirectTo: 'login', pathMatch: 'full' }
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  {
+    path: 'patientdetail/:id',
+    loadChildren: () => import('./patientdetail/patientdetail.module').then( m => m.PatientdetailPageModule)
+  }
 ];
 @NgModule({
   imports: [
