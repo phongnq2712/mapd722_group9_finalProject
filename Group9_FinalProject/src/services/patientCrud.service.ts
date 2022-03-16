@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ToastController } from '@ionic/angular';
-
+import { AlertService } from 'src/services/alert-service.service';
+import { Router } from '@angular/router';
 export class Patient {
   _id: number;
   firstName: string;
@@ -22,7 +23,8 @@ export class Patient {
 
 export class PatientCrudService {
     apiHost = 'http://127.0.0.1:5000';
-    constructor(public toastController: ToastController, private http: HttpClient) { }
+    constructor(public toastController: ToastController, private http: HttpClient,
+      private alertService: AlertService, private router: Router) { }
 
     loadAllPatients():Observable<any>{
       return this.http.get(`${this.apiHost}/patients`).pipe(
@@ -34,47 +36,18 @@ export class PatientCrudService {
       return this.http.get(`${this.apiHost}/patients/` + id);
     }
 
-  // async register(data){
-  //     var date = new Date().getDate();
-  //     var month = new Date().getMonth() + 1;
-  //     var year = new Date().getFullYear();
-  //     try {
-  //         const response = await fetch(this.apiHost + '/users/register', 
-  //         {   method: 'POST',
-  //             headers: {
-  //                 'Accept': 'application/json; charset=utf-8',
-  //                 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-  //             },
-  //             body: new URLSearchParams({
-  //                 'userName': data.username,
-  //                 'password': data.password,
-  //                 'fullname': data.fullname,
-  //                 'position': data.position,
-  //                 'created_time': year+'/'+month+'/'+date,
-  //             })
-  //         });
-  //         const json = await response.json();
-  //         return json;
-  //       } catch (error) {
-  //         console.error(error);
-  //     }
-  // }
-
-  // async login(username, password) {
-  //     try {
-  //         const requestOptions = {
-  //             method: 'POST',
-  //             headers: { 'Content-Type': 'application/json' },
-  //             body: JSON.stringify({ 'userName': username, 'password': password })
-  //         };
-  //         const response = await fetch(this.apiHost+'/users/login', requestOptions);
-  //         const data = await response.json();
-
-  //         return data[0];
-  //       } catch (error) {
-  //         console.error(error);
-  //     }
-  // }
+    addNewPatient(data) {      
+      this.http.post(`${this.apiHost}/patients`, data)
+      .subscribe(data => {
+        console.log(data['_body']);
+        // Alert message
+        this.alertService.genericAlert("Information", "Add new patient successfully!")
+        this.router.navigate(['/groupnine/patients/']);
+       }, error => {
+        console.log(error);
+      });
+  
+    }
 
   async presentToast(content) {
     const toast = await this.toastController.create({

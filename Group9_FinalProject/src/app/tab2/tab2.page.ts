@@ -21,4 +21,9 @@ export class Tab2Page implements OnInit {
     this.router.navigate(['/groupnine/patients/addpatient']);
   }
 
+  loadPatientsList(event){
+    this.patients = this.patientCrudService.loadAllPatients();
+    event.target.complete();
+    
+  }
 }

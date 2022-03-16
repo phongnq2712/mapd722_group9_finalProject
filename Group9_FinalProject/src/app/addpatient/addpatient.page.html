@@ -34,6 +34,15 @@
     </ion-row>
     <ion-row class="ion-justify-content-center ion-padding-vertical">
       <ion-item>
+        <ion-label position="floating">Gender</ion-label>
+        <ion-select interface="popover" placeholder="<...>" style="width: 8rem;" (ionChange)="userTypeChanged($event)">
+          <ion-select-option value="Male">Male</ion-select-option>
+          <ion-select-option value="Female">Female</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-padding-vertical">
+      <ion-item>
         <ion-label position="floating">Health Insurance Number</ion-label>
         <ion-input [(ngModel)]="healthInsuranceNo"></ion-input>
       </ion-item>
@@ -51,7 +60,7 @@
       </ion-item>
     </ion-row>
     <ion-row class="ion-justify-content-center ion-padding-vertical">
-      <ion-button expand="block" size="large" color="warning" (click)="addItem()">Add</ion-button>
+      <ion-button expand="block" size="large" color="warning" (click)="addPatient()">Add</ion-button>
     </ion-row>
   </ion-grid>
 </ion-content>
