@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Profile
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-row class="ion-justify-content-center"  style="margin-top: 3vh;">
+    <img src="../../assets/img/icon1024.png" width="120" />
+  </ion-row>
+  <ion-header collapse="condense" style="margin-top: 5vh;">
+    <ion-toolbar>
+      <ion-title size="large">Hi {{data.userName}}!</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-row class="ion-padding-vertical">
+    <ion-item>
+      <ion-label><b>Full Name:</b> {{data.fullname}}</ion-label>
+    </ion-item>
+  </ion-row>
+  <ion-row class="ion-padding-vertical">
+    <ion-item>
+      <ion-label><b>Position:</b> {{data.position}}</ion-label>
+    </ion-item>
+  </ion-row>
+
+  <!-- <app-explore-container name="Tab 3 page"></app-explore-container> -->
+</ion-content>

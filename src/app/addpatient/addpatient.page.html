@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/groupnine/patients"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add New Patient</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <!-- <ion-row class="ion-justify-content-center">
+      <ion-label class="ion-justify-content-center ion-padding-vertical lbl" position="floating" color="warning">
+        ITEM
+      </ion-label>
+    </ion-row> -->
+    <ion-row class="ion-justify-content-center ion-padding-vertical">
+      <ion-item>
+        <ion-label position="floating">First Name</ion-label>
+        <ion-input [(ngModel)]="firstName"></ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-padding-vertical">
+      <ion-item>
+        <ion-label position="floating">Last Name</ion-label>
+        <ion-input [(ngModel)]="lastName"></ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-padding-vertical">
+      <ion-item>
+        <ion-label position="floating">Age</ion-label>
+        <ion-input [(ngModel)]="age"></ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-padding-vertical">
+      <ion-item>
+        <ion-label position="floating">Gender</ion-label>
+        <ion-select interface="popover" placeholder="<...>" style="width: 8rem;" (ionChange)="userTypeChanged($event)">
+          <ion-select-option value="Male">Male</ion-select-option>
+          <ion-select-option value="Female">Female</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-padding-vertical">
+      <ion-item>
+        <ion-label position="floating">Health Insurance Number</ion-label>
+        <ion-input [(ngModel)]="healthInsuranceNo"></ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-padding-vertical">
+      <ion-item>
+        <ion-label position="floating">Phone Number</ion-label>
+        <ion-input [(ngModel)]="phoneNo"></ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-padding-vertical">
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input [(ngModel)]="email"></ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-padding-vertical">
+      <ion-button expand="block" size="large" color="warning" (click)="addPatient()">Add</ion-button>
+    </ion-row>
+  </ion-grid>
+</ion-content>

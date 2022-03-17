@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Patient Detail</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/groupnine/patients"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="patientDetail">
+    <ion-item>
+      <ion-card-header>
+        <ion-card-title style="background-color: sandybrown; text-align: center;">
+          {{patientDetail.firstName}} {{patientDetail.lastName}}
+        </ion-card-title>
+        <ion-card-title color="primary" class="patient-detail">
+          <em>Age:</em> {{patientDetail.age}}
+        </ion-card-title>
+        <ion-card-title color="primary" class="patient-detail">
+          <em>Gender:</em> {{patientDetail.gender}}
+        </ion-card-title>
+        <ion-card-title color="primary" class="patient-detail">
+          <em>Health Insurance Number:</em> {{patientDetail.healthInsuranceNo}}
+        </ion-card-title>
+        <ion-card-title color="primary" class="patient-detail">
+          <em>Phone:</em> {{patientDetail.phoneNo}}
+        </ion-card-title>
+        <ion-card-title color="primary" class="patient-detail">
+          <em>Email:</em> {{patientDetail.email}}
+        </ion-card-title>
+      </ion-card-header>
+    </ion-item>
+  </ion-card>
+  <ion-button style="font-size: 1.2rem; margin: 5%; padding-left: 15%;" size="small" color="tertiary" (click)="viewClinicalRecords()">
+    View Clinical Records
+  </ion-button>
+  <ion-button style="font-size: 1.2rem; margin: 5%; padding-left: 20%;" size="small" color="danger" (click)="addPatient()">
+    Delete this patient
+  </ion-button>
+</ion-content>
