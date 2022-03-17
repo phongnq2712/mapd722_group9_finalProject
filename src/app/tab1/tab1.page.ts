@@ -1,18 +1,3 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-tab1',
-//   templateUrl: 'tab1.page.html',
-//   styleUrls: ['tab1.page.scss']
-// })
-// export class Tab1Page {
-
-//   constructor() {}
-
-// }
-
-// // added more examples
-
 
 import { Component, OnInit } from '@angular/core';
 import { taskCrudService } from '../../services/taskCrud.service';
@@ -25,9 +10,9 @@ import { Router } from '@angular/router';
 })
 export class Tab1Page implements OnInit {
 
-  patients: Observable<any>;
+tasks: Observable<any>;
 
-  constructor(private router: Router, private patientCrudService: taskCrudService) {}
+  constructor(private router: Router, private taskCrudService: taskCrudService) {}
 
   ngOnInit(){
     this.tasks= this.taskCrudService.loadAllTasks();
