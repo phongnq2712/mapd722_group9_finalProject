@@ -49,6 +49,15 @@ export class PatientCrudService {
   
     }
 
+    deletePatient(id) {
+      if(id) {
+       return this.http.delete(`${this.apiHost}/patients/` + id).subscribe(
+          res => {console.log('deleted patient'), this.router.navigate(['/groupnine/patients/'])},
+          error => console.log('error occur, delete fail')
+        );
+      }
+    }
+
   async presentToast(content) {
     const toast = await this.toastController.create({
       message: content,
