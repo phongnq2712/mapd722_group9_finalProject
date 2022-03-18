@@ -1,3 +1,23 @@
-<p>
-  viewtasks works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>About this Task</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+<ion-row class="ion-justify-content-center ion-padding-vertical">
+  <ion-button expand="block" size="large" color="warning" (click)="deleteTask()">Delete</ion-button>
+</ion-row>
+
+<ion-row class="ion-justify-content-center ion-padding-vertical">
+  <ion-button expand="block" size="large" color="warning" (click)="updateTask()">Update</ion-button>
+</ion-row>
+
+<ion-row class="ion-justify-content-center ion-padding-vertical">
+  <ion-button expand="block" size="large" color="warning" (click)="tasklist()">Task List</ion-button>
+</ion-row>

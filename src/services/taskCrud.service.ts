@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 
 
 export class Task {
-  task_id: number;
+  taskId: number;
   taskName: string;
   time: string;
   taskStatus: string;
@@ -42,7 +42,7 @@ export class TaskCrudService {
       console.log(data['_body']);
       // Alert message
       this.alertService.genericAlert("Information", "Add new task successfully!")
-      this.router.navigate(['/groupnine/patients/']);
+      this.router.navigate(['/groupnine/tasks/']);
      }, error => {
       console.log(error);
     });
