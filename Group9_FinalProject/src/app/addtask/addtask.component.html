@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/groupnine/patients"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add New Task</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <form (ngSubmit) = "submit()" novalidate>
+  <ion-grid>
+
+    <ion-col class="ion-justify-content-center ion-padding-vertical">
+      <ion-item>
+        <ion-label position="floating">Task for user ID:</ion-label>
+        <ion-input [(ngModel)]="taskName"></ion-input>
+      </ion-item>
+    </ion-col>
+
+    <ion-col class="ion-justify-content-center ion-padding-vertical">
+      <ion-item>
+        <ion-label position="floating">Task Name:</ion-label>
+        <ion-input [(ngModel)]="taskName"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col class="ion-justify-content-center ion-padding-vertical">
+      <ion-item>
+        <ion-label position="floating">Task Time:</ion-label>
+        <ion-input [(ngModel)]="taskTime"></ion-input>
+      </ion-item>
+    </ion-col>
+    
+    <ion-col class="ion-justify-content-center ion-padding-vertical">
+      <ion-item>
+        <ion-label position="floating">Priority:</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <input type="radio" value="high" name="Priority" [ngModel]="Priority"> high
+        <input type="radio" value="low" name="Priority" [ngModel]="Priority" > low
+      </ion-item>
+    </ion-col>
+
+  
+    <ion-col class="ion-justify-content-center ion-padding-vertical">
+      <ion-item>
+        <ion-label position="floating">Task initial status:</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <input type="radio" value="high" name="Priority" [ngModel]="Priority" > assigned
+        <input type="radio" value="low" name="Priority" [ngModel]="Priority" > inprogress
+        <input type="radio" value="high" name="Priority" [ngModel]="Priority" > declined
+        <input type="radio" value="low" name="Priority" [ngModel]="Priority" > closed
+      </ion-item>
+    </ion-col>
+
+    <ion-button color="primary" class="submit-btn" expand="block" type="submit">Submit</ion-button>
+  </ion-grid>
+</form>
+</ion-content>

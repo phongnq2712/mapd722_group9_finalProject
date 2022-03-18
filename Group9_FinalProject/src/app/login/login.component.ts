@@ -24,11 +24,13 @@ export class LoginComponent implements OnInit {
       this.userCrudService.login(this.username, this.password).then(res => {
         if(typeof res !== 'undefined') {
           // redirect to Profile tab
+          this.storageService.set('userId', res.userId);
           let navigationExtras: NavigationExtras = {
             state: {
               user: res
             }
           };
+          
           this.router.navigate(['/groupnine/profile'], navigationExtras);
 
         } else {

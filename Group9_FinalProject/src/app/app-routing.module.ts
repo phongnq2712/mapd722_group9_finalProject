@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { AddtaskComponent } from './addtask/addtask.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'signup', component: SignupComponent},
+  { path: 'addtask', component: AddtaskComponent},
   {
     path: 'groupnine',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
