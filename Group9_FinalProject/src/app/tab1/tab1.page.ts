@@ -19,13 +19,6 @@ export class Tab1Page implements OnInit {
     public storageService: StorageService) {}
 
   ngOnInit(){
-  //   this.route.queryParams.subscribe(params => {
-  //     if (this.router.getCurrentNavigation().extras.state) {
-  //       this.data = this.router.getCurrentNavigation().extras.state.user;
-  //       this.tasks= this.taskCrudService.loadAllTasks(this.data);
-  //     }
-  //   });
-    //let userId = this.storageService.get('userId')
     this.storageService.get('userId').then(userId => {
       this.currentUserId = userId
       this.tasks = this.taskCrudService.loadAllTasks(this.currentUserId)
