@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/groupnine/tasks"></ion-back-button>
+    </ion-buttons>
+    <ion-title>About this Task</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-content class="ion-padding">
+  <p><b>Task ID: </b> {{task?._id}}</p>
+  <p><b>Task Name: </b> {{task?.taskName}}</p>
+  <p><b>Time: </b> {{task?.time}}</p>
+  <p><b>Status: </b><span [ngClass]="{'inprogress': task.status === 'inprogress',
+           'completed' : task.status === 'completed',
+            'declined' : task.status === 'declined',
+             'assigned' : task.status === 'assigned' }">{{task?.status}}</span></p>
+
+ <ion-buttons color="primary">
+    <ion-button color="primary" (click)="deleteTask()">DELETE</ion-button>
+    
+    <ion-button color="primary">UPDATE</ion-button>
+    <ion-button color="primary" (click)="goToTask()">TASK LIST</ion-button>
+ </ion-buttons>
+</ion-content> -->
+
+<ion-content class="ion-padding">
+  <p><b>Task ID: </b> {{task?._id}}</p>
+  <p><b>Task Name: </b> {{task?.taskName}}</p>
+  <p><b>Time: </b> {{task?.time}}</p>
+  <p><b>Status: </b> {{task?.status}}</p>
+  <p><b>Prriority: </b> {{task?.priority}}</p>
+  <ion-buttons>
+    <ion-button color="primary" (click)="deleteTask()">DELETE</ion-button>
+    <ion-button color="primary"(click)="goToUpdateTask()">UPDATE</ion-button>
+    <ion-button color="primary" [routerLink]="['/groupnine/tasks']">TASK LIST</ion-button>
+  </ion-buttons>
+</ion-content>

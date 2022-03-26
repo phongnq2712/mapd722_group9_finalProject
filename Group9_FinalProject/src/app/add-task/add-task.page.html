@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/groupnine/tasks/tasks"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add New Task</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-grid>
+
+    <ion-col class="ion-justify-content-center ion-padding-vertical">
+      <ion-item>
+        Task for userId: {{currentUserId}}
+      </ion-item>
+      <ion-item>
+        <ion-label position="fixed">Task Name:</ion-label>
+        <ion-input [(ngModel)]="taskName"></ion-input>
+      </ion-item>
+    </ion-col>
+
+    <ion-col class="ion-justify-content-center ion-padding-vertical">
+
+      <ion-datetime (ionChange)="selectDate($event)"></ion-datetime>
+    </ion-col>
+
+    <ion-col class="ion-justify-content-center ion-padding-vertical">
+      <ion-radio-group (ionChange)="selectPriority($event)">
+        <ion-list-header>
+          <ion-label>Priority:</ion-label>
+        </ion-list-header>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label>High</ion-label>
+                <ion-radio slot="start" value="high"></ion-radio>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-label>Low</ion-label>
+                <ion-radio slot="start" value="low"></ion-radio>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-radio-group>
+    </ion-col>
+
+
+    <ion-col class="ion-justify-content-center ion-padding-vertical">
+      <ion-item>
+        <ion-radio-group (ionChange)="selectTaskStatus($event)">
+          <ion-list-header>
+            <ion-label>Task initial status:</ion-label>
+          </ion-list-header>
+
+          <ion-item>
+            <ion-label>Assigned</ion-label>
+            <ion-radio slot="end" value="assigned"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>In Progress</ion-label>
+            <ion-radio slot="end" value="inprogress"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Declined</ion-label>
+            <ion-radio slot="end" value="declined"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Completed</ion-label>
+            <ion-radio slot="end" value="completed"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-item>
+    </ion-col>
+
+    <ion-button color="primary" class="submit-btn" expand="block" (click)="addTask()">Submit</ion-button>
+  </ion-grid>
+</ion-content>

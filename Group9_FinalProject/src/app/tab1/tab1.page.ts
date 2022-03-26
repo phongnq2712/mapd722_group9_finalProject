@@ -14,19 +14,22 @@ export class Tab1Page implements OnInit {
   tasks: Observable<any>;
   currentUserId: string;
 
-  constructor(private route: ActivatedRoute, private router: Router, 
+  constructor(private route: ActivatedRoute, private router: Router,
     private taskCrudService: TaskCrudService,
     public storageService: StorageService) {}
 
   ngOnInit(){
-    this.storageService.get('userId').then(userId => {
-      this.currentUserId = userId
-      this.tasks = this.taskCrudService.loadAllTasks(this.currentUserId)
-    })
-    
-  }
 
+  }
+  ionViewDidEnter() {
+    this.currentUserId = localStorage.getItem('userId')
+    console.log('this.currentUserId', this.currentUserId)
+    this.taskCrudService.loadAllTasks(this.currentUserId).subscribe(res=>{
+      this.tasks = res;
+      console.log(res)
+    })
+  }
   addTask() {
-    this.router.navigate(['/groupnine/task/addtask']);
+    this.router.navigate(['/groupnine/tasks/addtask']);
   }
 }

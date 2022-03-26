@@ -8,6 +8,7 @@ import { Tab1Page } from './tab1.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
+import {TaskDetailsComponent} from "./task-details/task-details.component";
 
 @NgModule({
   imports: [
@@ -17,7 +18,10 @@ import { Tab1PageRoutingModule } from './tab1-routing.module';
     ExploreContainerComponentModule,
     Tab1PageRoutingModule
   ],
-  declarations: [Tab1Page]
+  declarations: [
+    Tab1Page,
+    TaskDetailsComponent
+  ]
 })
 export class Tab1PageModule{}
 //export class Tab2PageModule {}

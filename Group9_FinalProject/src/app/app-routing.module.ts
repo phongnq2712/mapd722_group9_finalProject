@@ -2,12 +2,10 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { AddtaskComponent } from './addtask/addtask.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'signup', component: SignupComponent},
-  { path: 'addtask', component: AddtaskComponent},
   {
     path: 'groupnine',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
@@ -24,6 +22,14 @@ const routes: Routes = [
   {
     path: 'viewclinicalrecords',
     loadChildren: () => import('./viewclinicalrecords/viewclinicalrecords.module').then( m => m.ViewclinicalrecordsPageModule)
+  },
+  {
+    path: 'add-task',
+    loadChildren: () => import('./add-task/add-task.module').then( m => m.AddTaskPageModule)
+  },
+  {
+    path: 'update-task',
+    loadChildren: () => import('./update-task/update-task.module').then( m => m.UpdateTaskPageModule)
   }
 ];
 @NgModule({

@@ -22,7 +22,7 @@ export class Patient {
 })
 
 export class PatientCrudService {
-    apiHost = 'http://127.0.0.1:5000';
+    apiHost = 'http://127.0.0.1:5001';
     constructor(public toastController: ToastController, private http: HttpClient,
       private alertService: AlertService, private router: Router) { }
 

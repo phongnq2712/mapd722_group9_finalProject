@@ -22,23 +22,21 @@ export class Task {
 
 
 export class TaskCrudService {
-  apiHost = 'http://127.0.0.1:5000';
+  apiHost = 'http://127.0.0.1:5001';
   constructor(public toastController: ToastController, private http: HttpClient,
     private alertService: AlertService, private router: Router) { }
 
   loadAllTasks(data):Observable<any>{
     let userId = data
-    return this.http.get(`${this.apiHost}/users/` + userId + "/tasks").pipe(
-      map(results => results)
-    );
+    return this.http.get(`${this.apiHost}/users/` + userId + "/tasks");
   }
 
-  getTaskDetail(id) {
-    return this.http.get(`${this.apiHost}/tasks/` + id);
+  getTaskDetail(userId, taskId) {
+    return this.http.get(`${this.apiHost}/users/${userId}/tasks/${taskId}`);
   }
 
-  addNewTask(data) {      
-    this.http.post(`${this.apiHost}/tasks`, data)
+  addNewTask(data) {
+    this.http.post(`${this.apiHost}/users/${data.currentUserId}/tasks`, data)
     .subscribe(data => {
       console.log(data['_body']);
       // Alert message
@@ -47,6 +45,26 @@ export class TaskCrudService {
      }, error => {
       console.log(error);
     });
+
+  }
+
+  deleteTask(id, currentUserId) {
+    if(id && currentUserId) {
+      return this.http.delete(`${this.apiHost}/users/${currentUserId}/tasks/${id}`).subscribe(
+        res => {console.log('deleted task'), this.router.navigate(['/groupnine/tasks/'])},
+        error => console.log('error occur, delete fail')
+      );
+    }
+  }
+
+  updateTask(data) {
+    if(data) {
+      return this.http.put(`${this.apiHost}/users/${data.currentUserId}/tasks/${data.id}`,data).subscribe(
+        res => {console.log('updated task'), this.router.navigate(['/groupnine/tasks/task/',data.id])},
+        error => console.log('error occur, delete fail')
+      );
+    }
+    
 
   }
 

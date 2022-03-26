@@ -7,29 +7,43 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <!-- <ion-refresher slot="fixed" (ionRefresh)="loadPatientsList($event)">
-    <ion-refresher-content
-      pullingIcon="chevron-down-circle-outline"
-      pullingText="Pull to refresh"
-      refreshingSpinner="lines"
-      refreshingText="Reloading kitchens">
-    </ion-refresher-content>
-  </ion-refresher> -->
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Task list</ion-title>
-    </ion-toolbar>
-    <ion-button style="font-size: 1rem; margin: 0.5rem" size="large" expand="block" color="success" (click)="addTask()">
-      Add New Task
-    </ion-button>
-  </ion-header>
+  <ion-button style="font-size: 1rem; margin: 0.5rem" size="large" expand="block" color="success" (click)="addTask()">
+    Add New Task
+  </ion-button>
+
+<!--
+  <ion-list>
+    <ion-grid class="ion-margin">
+      <ion-row>
+        <ion-col>Name</ion-col>
+        <ion-col>Time</ion-col>
+        <ion-col>Status</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let task of tasks" [routerLink]="['/groupnine/tasks/task/', task._id]">
+        <ion-col>{{ task.taskName }}</ion-col>
+        <ion-col>{{ task.time }}</ion-col>
+        <ion-col>{{ task.status }}</ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list> -->
 
   <ion-list>
-    <ion-item *ngFor="let task of (tasks | async)">
+    <ion-item *ngFor="let task of tasks" [routerLink]="['/groupnine/tasks/task/', task._id]" detail>
+      <ion-avatar slot="start">
+        <!-- <img src="https://svgsilh.com/svg/144971.svg" height="50px"> -->
+        <img src="../../assets/img/avatar.png" alt="">
+      </ion-avatar>
+
       <ion-label text-wrap>
-        <h1><b>{{ task.taskName }} </b></h1>
-        <h3>Time: {{ task.time }} </h3>
-        <h3>Status: {{ task.status }} </h3>
+        <h1>{{ task.taskName }}
+          <span class="status"
+            [ngClass]="{'inprogress': task.status === 'inprogress',
+           'completed' : task.status === 'completed',
+            'declined' : task.status === 'declined',
+             'assigned' : task.status === 'assigned' }">
+          {{ task.status }}</span></h1>
+        <h3>Time: <span>{{ task.time | date: 'medium' }}</span></h3>
+        <h3>TaskID: <span>{{ task._id }}</span></h3>
       </ion-label>
     </ion-item>
   </ion-list>

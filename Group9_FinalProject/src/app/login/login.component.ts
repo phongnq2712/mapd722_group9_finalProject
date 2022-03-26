@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   constructor(public router: Router,
     public userCrudService: UserCrudService, public storageService: StorageService) {
-  
+
   }
 
   ngOnInit() {}
@@ -25,12 +25,13 @@ export class LoginComponent implements OnInit {
         if(typeof res !== 'undefined') {
           // redirect to Profile tab
           this.storageService.set('userId', res.userId);
+          localStorage.setItem('userId', res.userId);
           let navigationExtras: NavigationExtras = {
             state: {
               user: res
             }
           };
-          
+
           this.router.navigate(['/groupnine/profile'], navigationExtras);
 
         } else {
