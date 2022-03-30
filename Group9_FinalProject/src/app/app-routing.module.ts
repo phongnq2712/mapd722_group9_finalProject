@@ -30,6 +30,10 @@ const routes: Routes = [
   {
     path: 'update-task',
     loadChildren: () => import('./update-task/update-task.module').then( m => m.UpdateTaskPageModule)
+  },
+  {
+    path: 'updateclinicalrecords',
+    loadChildren: () => import('./updateclinicalrecords/updateclinicalrecords.module').then( m => m.UpdateclinicalrecordsPageModule)
   }
 ];
 @NgModule({

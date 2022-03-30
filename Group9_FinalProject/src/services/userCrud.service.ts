@@ -16,7 +16,7 @@ export class User {
 })
 
 export class UserCrudService {
-    apiHost = 'http://127.0.0.1:5001';
+    apiHost = 'http://127.0.0.1:5000';
     constructor(public toastController: ToastController) { }
 
   async register(data){

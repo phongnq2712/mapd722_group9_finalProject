@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Update Clinical Records</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item>
+      <ion-card-header>
+        <ion-card-title color="primary" class="clinical-records-record">
+          <em>Blood Pressure:</em> 
+          <ion-input [(ngModel)]="bloodPressure"></ion-input>
+        </ion-card-title>
+        <br/>
+        <ion-card-title color="primary" class="clinical-records-record">
+          <em>Respiratory Rate:</em> 
+          <ion-input [(ngModel)]="respiratoryRate"></ion-input>
+        </ion-card-title>
+        <br/>
+        <ion-card-title color="primary" class="clinical-records-record">
+          <em>Blood Oxygen level:</em>
+          <ion-input [(ngModel)]="bloodOxygenLevel"></ion-input>
+        </ion-card-title>
+        <br/>
+        <ion-card-title color="primary" class="clinical-records-record">
+          <em>Heartbeat Rate:</em> 
+          <ion-input [(ngModel)]="heartBeatRate"></ion-input>
+        </ion-card-title>
+      </ion-card-header>
+    </ion-item>
+    <ion-button style="font-size: 1.2rem; margin: 10%; padding-left: 15%;" size="small" color="tertiary" (click)="updateCR()">
+      Update
+    </ion-button>
+  </ion-card>
+</ion-content>

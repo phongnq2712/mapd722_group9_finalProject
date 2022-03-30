@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { ClinicalRecordsCrudService } from '../../services/clinicalRecordsCrud.service';
-
 @Component({
   selector: 'app-viewclinicalrecords',
   templateUrl: './viewclinicalrecords.page.html',
@@ -28,5 +27,15 @@ export class ViewclinicalrecordsPage implements OnInit {
   }
 
   ngOnInit() {}
+
+  updateClinicalRecords() {
+    let navigationExtras: NavigationExtras = {
+      state: {
+        patientId: this.patientID,
+        clinicalRecordsDetail: this.clinicalRecordsDetail
+      }
+    };
+    this.router.navigate(['updateclinicalrecords'], navigationExtras);
+  }
 
 }
